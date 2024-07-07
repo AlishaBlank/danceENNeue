@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="danceEN.Teilnehmer"
+             Title="Teilnehmer">
+
+
+    <ScrollView>
+        <StackLayout Spacing="10">
+            <Button ImageSource="personaddklein.png" ContentLayout="right,10" WidthRequest="300" Text="Teilnehmer hinzufügen" Clicked="TeilnehmerHinzufuegenClicked"/>
+            <CollectionView ItemsSource="{Binding CollectionTeilnehmer}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text ="{Binding Name}" VerticalTextAlignment="Center" />
+                            <Button WidthRequest="100" HorizontalOptions="EndAndExpand" Margin="8" BackgroundColor="#FF0800" Text="Löschen" Clicked="TeilnehmerLoeschenClicked"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Spacing="10">
+                <Label Text="Anwesenheitsliste"
+                       FontSize="Large"
+                       HorizontalOptions="Center" 
+                       Style="{StaticResource Headline}"/>
+                <ListView ItemsSource="{Binding CollectionTeilnehmer}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Label Text="{Binding Name}" VerticalOptions="Center" />
+                                    <CheckBox IsChecked="{Binding IstAnwesend}" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+
+
+    </ScrollView>
+
+</ContentPage>

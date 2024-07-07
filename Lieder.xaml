@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="danceEN.Lieder"
+             Title="Lieder">
+    
+    <StackLayout>
+        <Button Text="Lied hinzufügen" ImageSource="youtube.png" ContentLayout="right,10" WidthRequest="200"  Clicked="LiedHinzufuegen"/>
+        <CollectionView ItemsSource="{Binding LiederCollection}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource SubHeadline}" Text="{Binding LinkText}"  VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Italic">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Button HorizontalOptions="EndAndExpand" Margin="8" BackgroundColor="#FF0800" Text="Löschen" WidthRequest="100" Clicked="Button_Clicked" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

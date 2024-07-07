@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="danceEN.LinkEingabePopup"
+               Color="Transparent"
+               >
+
+
+    <Border Padding="10" HeightRequest="200"
+           WidthRequest="400"
+           Stroke="Transparent"
+           BackgroundColor="#FFEAE7EC">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="10"/>
+        </Border.StrokeShape>
+        <VerticalStackLayout>
+            <Label 
+            Text="Bitte Liedtitel und URL eingeben:"
+            TextColor="Black"/>
+
+            <Entry x:Name="LiedtitelEntry" Placeholder="Liedtitel" TextColor="Black"></Entry>
+            <Entry x:Name="URLEntry" Placeholder="URL" TextColor="Black"></Entry>
+            <StackLayout Orientation="Horizontal" Spacing="5" >
+                <Button Text="Abbrechen" WidthRequest="150" TextColor="Black" Clicked="OnAbbrechenClicked"/>
+                <Button Text="Bestätigen" WidthRequest="150" TextColor="Black" Clicked="OnBestaetigenClicked"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>
